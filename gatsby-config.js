@@ -12,6 +12,21 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-theme-material-ui`,
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: `Work Sans`,
+                variants: [`300`, `400`, `500`, '700'],
+              },
+            ],
+          },
+        },
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
