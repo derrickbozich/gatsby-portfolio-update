@@ -44,14 +44,21 @@ const theme = createTheme({
         p: {
             fontFamily: fonts.body,
         },
-        body1: {
+
+        subhead1: {
             fontFamily: fonts.body,
-            fontSize: 18,
+            fontSize: 22,
             marginBottom: '1rem'
         },
+
         body1italic: {
             fontFamily: "bodini-italic",
             fontSize: 18,
+        },
+        body1: {
+            fontFamily: fonts.body,
+            fontSize: 18,
+            marginBottom: '2rem'
         },
         body2: {
             fontFamily: fonts.body,
@@ -79,11 +86,11 @@ const theme = createTheme({
             fontWeight: 600,
         },
         nav: {
-          
-                fontFamily: fonts.body,
-                fontSize: 16,
-                letterSpacing: '0.15em'
-            
+
+            fontFamily: fonts.body,
+            fontSize: 16,
+            letterSpacing: '0.15em'
+
         },
         brand: {
             fontFamily: fonts.body,

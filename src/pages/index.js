@@ -13,19 +13,24 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="Home" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
+  const clients = [
+    {
+      to: 'https://cactusinc.com',
+      title: 'Cactus Inc'
+    },
+    {
+      to: 'https://gritdigitalhealth.com',
+      title: 'Grit Digital Health'
+    },
+    {
+      to: 'https://gritdigitalhealth.com',
+      title: 'Kemado Media Group'
+    },
+    {
+      to: 'https://gritdigitalhealth.com',
+      title: 'Domino Records'
+    }
+  ]
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -34,10 +39,10 @@ const BlogIndex = ({ data, location }) => {
       <Container>
         <Box display='flex' alignItems='center'>
           <Box flexBasis={['100%', null, '50%']}>
-            <Typography variant='h3' as='h1'>
+            <Typography  variant='h1'>
               Derrick Bozich
             </Typography>
-            <Typography variant='subhead.1' as='h1'>
+            <Typography variant='subhead1'>
               Full Stack Developer
             </Typography>
           </Box>
@@ -47,12 +52,12 @@ const BlogIndex = ({ data, location }) => {
         </Box>
       </Container>
 
-      <Container>
+      <Container id='portfolio'>
         <Typography>
-          Projects
+          Portfolio
         </Typography>
         <Box>
-          <ol style={{ listStyle: `none` }}>
+          <ol style={{ listStyle: `none`, paddingLeft: 0 }}>
             {posts.map(post => {
               const title = post.frontmatter.title || post.fields.slug
 
@@ -88,9 +93,50 @@ const BlogIndex = ({ data, location }) => {
 
       </Container>
 
+      <Container id='about'>
+        <Typography variant='h1'>
+          About
+        </Typography>
+        <Typography variant='body1'>
+          Hi! I'm Derrick Bozich, a full stack developer living in Denver, CO. I have been coding since 2017 and have a certificate in full stack web development from The Flatiron School (NYC). I spend most of my time working with marketing agencies, musicians, small businesses and non-profit organizations. I love the process of learning, collaboration and doing quality work. Please feel free to contact me, I would love to help you with your project.
+        </Typography>
+
+        <Typography as='h2' variant='subhead.2'>
+          Tools
+        </Typography>
+        <Typography variant='body1'>
+          Node, Express, MongoDB, React, Redux, Wordpress, PHP, Apache, Sage, Pantheon, Gatsby, Netlify, Prismic.io, GraphQL, Spotify API, The Slim Framework, Ruby on Rails, CSS3, HTML5, JavaScript, Git, Grunt, Processing , p5.js , Photoshop , Sketch , Object Oriented Programming.
+        </Typography>
+        <Typography as='h2' variant='subhead.2'>
+          What I'm practicing:
+        </Typography>
+        <Typography variant='body1'>
+          I am always learning new frameworks, languages, coding practices or strengthening my knowledge of what I am already familiar with. Right now, I am focusing on learning more advanced React concepts. I am also very interested in Digital Signal Processing.
+        </Typography>
+        <Typography as='h2' variant='subhead.2'>
+          Clients
+        </Typography>
+        <Box as='ul' sx={{listStyle: 'none', paddingLeft:'0'}}>
+          {
+            clients.map((item, i) => {
+              return(
+                <li>
+                  <a href={item.to} key={i}>
+                    <Typography>
+                      {item.title}
+                    </Typography>
+                  </a>
+                </li>
+              )
+            })
+          }
+        </Box>
+
+      </Container>
 
 
- 
+
+
     </Layout>
   )
 }

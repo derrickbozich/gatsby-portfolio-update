@@ -6,42 +6,49 @@
  */
 
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import  Container  from "@mui/material/Container"
-import  Box  from "@mui/material/Box"
+import Container from "@mui/material/Container"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 
 const Footer = () => {
-    const data = useStaticQuery(graphql`
-    query FooterQuery {
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `)
 
-    // Set these values by editing "siteMetadata" in gatsby-config.js
-    const author = data.site.siteMetadata?.author
-    const social = data.site.siteMetadata?.social
 
-    return (
-        <Container as='footer' display='flex'>
-          <Box>
-                YOOO
-          </Box>
-          <Box>
+  return (
+    <Box backgroundColor="black">
+      <Container as='footer' id='contact'
+        sx={{
+          display: 'flex',
+          flexDirection: "column",
+          flexWrap: 'wrap',
+          padding: '8rem',
+          justifyContent: 'center',
+          textAlign: 'center'
+        }} >
+        <Box>
+          <Typography color='primary.light' >
+            Contact
+          </Typography>
+          <a href="mailto:dbozich1@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Typography color='primary.light' >
+              dbozich1@gmail.com
+            </Typography>
+          </a>
+          <a href="mailto:dbozich1@gmail.com" target="_blank" rel="noopener noreferrer">
+            <GitHubIcon color='primary.light' />
+          </a>
+          <Typography color='primary.light' >
+            © {new Date().getFullYear()}
+          </Typography>
+      
+        </Box>
 
-          </Box>
-        </Container>
-    )
+      </Container>
+
+    </Box>
+
+  )
 }
 
 export default Footer
