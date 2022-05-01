@@ -1,7 +1,7 @@
 ---
 title: "Ela Minus"
 date: "2019-01-02"
-featuredImage: ../images/slides/ela-minus.jpg
+featuredImage: ../images/posts/ela-minus.jpg
 featured: true
 href: https://aor.elaminus.com/
 ---

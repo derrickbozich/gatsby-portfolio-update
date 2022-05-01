@@ -40,7 +40,7 @@ const BlogIndex = ({ data, location }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
 
     mobileFirst: true,
     responsive: [
@@ -88,8 +88,12 @@ const BlogIndex = ({ data, location }) => {
         </Container>
         <ol style={{ listStyle: `none`, paddingLeft: 0, maxWidth: '1200px', margin: '0 auto' }}>
           <Slider {...settings}>
-            {posts.map(post => {
+            {posts.map((post, i) => {
               const title = post.frontmatter.title || post.fields.slug
+
+              if(!post.frontmatter.featured){
+                return null
+              }
 
               return (
                 <div key={post.fields.slug}>
@@ -102,14 +106,7 @@ const BlogIndex = ({ data, location }) => {
                       itemType="http://schema.org/Article"
                     >
 
-                      {/* <section>
-                        <p
-                          dangerouslySetInnerHTML={{
-                            __html: post.frontmatter.description || post.excerpt,
-                          }}
-                          itemProp="description"
-                        />
-                      </section> */}
+                     
                     </article>
 
                   </Link>
@@ -195,7 +192,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          description
+          featured
         }
       }
     }

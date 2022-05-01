@@ -1,7 +1,7 @@
 ---
 title: "Sound of Ceres"
 date: "2019-02-01"
-featuredImage: ../images/slides/sound-of-ceres.png
+featuredImage: ../images/posts/sound-of-ceres.png
 featured: true
 href: https://www.soundofceres.com/
 ---

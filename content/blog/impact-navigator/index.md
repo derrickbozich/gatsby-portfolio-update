@@ -1,7 +1,7 @@
 ---
 title: "Impact Navigator"
 date: "2019-02-01"
-featuredImage: ../images/slides/impactnav.png
+featuredImage: ../images/posts/impactnav.png
 featured: true
 href: https://www.impactnav.org/
 ---

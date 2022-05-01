@@ -1,7 +1,7 @@
 ---
 title: "Ariel Pink"
 date: "2019-01-01"
-featuredImage: ../images/slides/ariel-pink.png
+featuredImage: ../images/posts/ariel-pink.png
 featured: true
 href: https://www.ariel-pink.com/
 ---
