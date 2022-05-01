@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -19,7 +20,7 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <Container maxWidth={false} sx={{ paddingBottom: '8rem', paddingTop: '2rem', gap: '40px', display: 'flex', justifyContent: 'center' }}>
-        <Box display="flex" alignItems="center">
+        <Box display="flex" alignItems="center" flexBasis='15%'>
           {previous && (
             <Link to={previous.fields.slug} rel="prev">
               ← {previous.frontmatter.title}
@@ -33,7 +34,9 @@ const BlogPostTemplate = ({ data, location }) => {
             itemType="http://schema.org/Article"
           >
             <header>
-              <h1 itemProp="headline">{post.frontmatter.title}</h1>
+              <Typography variant='h3' as='h1'>
+                {post.frontmatter.title}
+              </Typography>
               {/* <p>{post.frontmatter.date}</p> */}
             </header>
             <section
@@ -47,7 +50,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <Box flexBasis='35%'>
           <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" />
         </Box>
-        <Box display="flex" alignItems="center" justifyContent="center">
+        <Box display="flex" alignItems="center" justifyContent="center" flexBasis='15%'>
           {next && (
             <Link to={next.fields.slug} rel="next">
               {next.frontmatter.title} →
