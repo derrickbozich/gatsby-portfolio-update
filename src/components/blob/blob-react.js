@@ -1,18 +1,15 @@
 import * as React from "react"
-// import { spline } from "https://cdn.skypack.dev/@georgedoescode/spline@1.0.1";
 import { spline } from "./spline"
-// import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@2.4.0";
 import SimplexNoise from 'simplex-noise';
 import { useAnimationFrame } from "../../hooks/useAnimationFrame";
+import Box from '@mui/material/Box'
+
+// Reference:
+// https://georgefrancis.dev/writing/build-a-smooth-animated-blob-with-svg-and-js/
 
 const Blob = () => {
     const [points, setPoints] = React.useState(createPoints())
     const [d, setD] = React.useState(null)
-    
-    const path = React.useRef(null);
-
-    console.log('path', path.current)
-
     let hueNoiseOffset = 0;
     let noiseStep = 0.005;
     const simplex = new SimplexNoise();
@@ -60,21 +57,19 @@ const Blob = () => {
     useAnimationFrame(deltaTime => {
         // Pass on a function to the setter of the state
         // to make sure we always have the latest state
-        // path.current.setAttribute("d", Spline(points, 1, true));
-        
         setD(spline(points, 1, true))
-
         const pointsClone = [...points];
 
         // for every point...
         pointsClone.forEach((point, i) => {
+            const depth = 10;
 
             // return a pseudo random value between -1 / 1 based on this point's current x, y positions in "time"
             const nX = noise(point.noiseOffsetX, point.noiseOffsetX);
             const nY = noise(point.noiseOffsetY, point.noiseOffsetY);
             // map this noise value to a new value, somewhere between it's original location -20 and it's original location + 20
-            const x = map(nX, -1, 1, point.originX - 20, point.originX + 20);
-            const y = map(nY, -1, 1, point.originY - 20, point.originY + 20);
+            const x = map(nX, -1, 1, point.originX - depth, point.originX + depth);
+            const y = map(nY, -1, 1, point.originY - depth, point.originY + depth);
 
             // update the point's current coordinates
             point.x = x;
@@ -90,26 +85,27 @@ const Blob = () => {
 
         const hueNoise = noise(hueNoiseOffset, hueNoiseOffset);
         const hue = map(hueNoise, -1, 1, 0, 360);
-
         const root = document.documentElement;
-
         root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
         root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
-        // document.body.style.background = `hsl(${hue + 60}, 75%, 5%)`;
 
         hueNoiseOffset += noiseStep / 6;
     })
 
     return (
-        <svg viewBox="0 0 200 200">
-            <defs>
-                <linearGradient id="gradient" gradientTransform="rotate(90)">
-                    <stop id="gradientStop1" offset="0%" stopColor="var(--startColor)" />
-                    <stop id="gradientStop2 " offset="100%" stopColor="var(--stopColor)" />
-                </linearGradient>
-            </defs>
-            <path  d={d} fill="url('#gradient')"></path>
-        </svg>
+        <Box maxWidth='200px'>
+            <svg viewBox="0 0 200 200">
+                <defs>
+                    <linearGradient id="gradient" gradientTransform="rotate(90)">
+                        <stop id="gradientStop1" offset="0%" stopColor="var(--startColor)" />
+                        <stop id="gradientStop2 " offset="100%" stopColor="var(--stopColor)" />
+                    </linearGradient>
+                </defs>
+                <path d={d} fill="url('#gradient')"></path>
+            </svg>
+
+        </Box>
+      
     )
 }
 

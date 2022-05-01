@@ -8,6 +8,7 @@ import Seo from "../components/seo"
 import sinwav from "../images/svg/sinwav.svg"
 import Counter from "../components/counter"
 import Blob from "../components/blob/blob-react"
+import Slider from "react-slick";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -30,7 +31,15 @@ const BlogIndex = ({ data, location }) => {
       to: 'https://gritdigitalhealth.com',
       title: 'Domino Records'
     }
-  ]
+  ];
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -63,38 +72,44 @@ const BlogIndex = ({ data, location }) => {
               Portfolio
             </Typography>
             <Blob />
+          
             <Box>
               <ol style={{ listStyle: `none`, paddingLeft: 0 }}>
-                {posts.map(post => {
-                  const title = post.frontmatter.title || post.fields.slug
+                <Slider {...settings}>
+                  {posts.map(post => {
+                    const title = post.frontmatter.title || post.fields.slug
 
-                  return (
-                    <li key={post.fields.slug}>
-                      <article
-                        className="post-list-item"
-                        itemScope
-                        itemType="http://schema.org/Article"
-                      >
-                        <header>
-                          <h2>
-                            <Link to={post.fields.slug} itemProp="url">
-                              <span itemProp="headline">{title}</span>
-                            </Link>
-                          </h2>
-                          <small>{post.frontmatter.date}</small>
-                        </header>
-                        <section>
-                          <p
-                            dangerouslySetInnerHTML={{
-                              __html: post.frontmatter.description || post.excerpt,
-                            }}
-                            itemProp="description"
-                          />
-                        </section>
-                      </article>
-                    </li>
-                  )
-                })}
+                    return (
+                      <div key={post.fields.slug}>
+                     
+                        <article
+                          className="post-list-item"
+                          itemScope
+                          itemType="http://schema.org/Article"
+                        >
+                          <header>
+                            <h2>
+                              <Link to={post.fields.slug} itemProp="url">
+                                <span itemProp="headline">{title}</span>
+                              </Link>
+                            </h2>
+                            <small>{post.frontmatter.date}</small>
+                          </header>
+                          <section>
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: post.frontmatter.description || post.excerpt,
+                              }}
+                              itemProp="description"
+                            />
+                          </section>
+                        </article>
+                      </div>
+                    )
+                  })}
+
+                </Slider>
+                
               </ol>
             </Box>
 
