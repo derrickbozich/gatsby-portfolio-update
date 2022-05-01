@@ -22,7 +22,7 @@ const Footer = () => {
           display: 'flex',
           flexDirection: "column",
           flexWrap: 'wrap',
-          padding: '8rem 0 4rem 0',
+          padding: '6rem 0 4rem 0',
           justifyContent: 'center',
           textAlign: 'center'
         }} >

@@ -36,23 +36,25 @@ const Header = ({ location }) => {
     const author = data.site.siteMetadata?.author
     const social = data.site.siteMetadata?.social
     const rootPath = `${__PATH_PREFIX__}/`
+    console.log('location', location)
+    // const rootPath = `/`
     const isRootPath = location?.pathname === rootPath
 
     const navItems = [
         {
-            to: '#portfolio',
+            to: '/#portfolio',
             title: "Portfolio",
             icon: false,
             external: false
         },
         {
-            to: '#about',
+            to: '/#about',
             title: "About",
             icon: false,
             external: false
         },
         {
-            to: '#contact',
+            to: '/#contact',
             title: "Contact",
             icon: false,
             external: false
@@ -69,7 +71,7 @@ const Header = ({ location }) => {
         <Container as='header' maxWidth={false} sx={{ display: 'flex', flexWrap: 'wrap' }} >
             <Box flexBasis={["100%", null, "50%"]}>
                 {
-                    isRootPath &&
+                    !isRootPath &&
                     <Link to={'/'}>
                         <Typography>
                             Derrick Bozich
@@ -92,7 +94,7 @@ const Header = ({ location }) => {
                 {navItems.map((item, i) => {
                     if (item.external) {
                         return (
-                            <ListItem sx={{ display: 'inline-flex', width: 'auto', padding: 0 }}  >
+                            <ListItem key={i} sx={{ display: 'inline-flex', width: 'auto', padding: 0 }}  >
                                 <a href={item.to} target="_blank" rel="noopener noreferrer">
                                     {
                                         item.icon && item.icon

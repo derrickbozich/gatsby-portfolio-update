@@ -11,7 +11,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <TopLayout theme={theme}>
-        <Header locaction={location} />
+        <Header location={location} />
         <main>{children}</main>
         <Footer/>
     </TopLayout>
