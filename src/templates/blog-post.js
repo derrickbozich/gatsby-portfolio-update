@@ -1,10 +1,11 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-
+import { graphql } from "gatsby"
+import { Link } from "gatsby-theme-material-ui"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Container from "@mui/material/Container"
+import Box from "@mui/material/Box"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -17,54 +18,49 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Container sx={{paddingBottom: '8rem', paddingTop: '2rem'}}>
-        <article
-          className="blog-post"
-          itemScope
-          itemType="http://schema.org/Article"
-        >
-          <header>
-            <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
-          </header>
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
-          <hr />
-          <footer>
-            <Bio />
-          </footer>
-        </article>
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
+      <Container maxWidth={false} sx={{ paddingBottom: '8rem', paddingTop: '2rem', gap: '30px', display: 'flex' }}>
+        <Box display="flex" alignItems="center">
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
+        </Box>
+        <Box flexBasis='40%'>
+          <article
+            className="blog-post"
+            itemScope
+            itemType="http://schema.org/Article"
           >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+            <header>
+              <h1 itemProp="headline">{post.frontmatter.title}</h1>
+              {/* <p>{post.frontmatter.date}</p> */}
+            </header>
+            <section
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              itemProp="articleBody"
+            />
+            <hr />
+            <footer>
+              <Bio />
+            </footer>
+          </article>
+        </Box>
+        <Box flexBasis='40%'>
+          <img src="" width='300px' height='300px' alt="yooo" />
+        </Box>
+        <Box display="flex" alignItems="center" justifyContent="center">
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          )}
+        </Box>
+
+     
 
       </Container>
-  
+
     </Layout>
   )
 }

@@ -40,7 +40,15 @@ const BlogIndex = ({ data, location }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: "unslick"
+      }
+    ]
   };
 
   return (
