@@ -79,9 +79,11 @@ const theme = createTheme({
             fontWeight: 600,
         },
         nav: {
-            fontFamily: "bodini-italic",
-            fontSize: 16,
-            letterSpacing: '0.15em'
+          
+                fontFamily: fonts.body,
+                fontSize: 16,
+                letterSpacing: '0.15em'
+            
         },
         brand: {
             fontFamily: fonts.body,
