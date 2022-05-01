@@ -19,7 +19,11 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: `Work Sans`,
+                family: `Red Hat Display`,
+                variants: [`300`, `400`, `500`, '700'],
+              },
+              {
+                family: `Red Hat Text`,
                 variants: [`300`, `400`, `500`, '700'],
               },
             ],

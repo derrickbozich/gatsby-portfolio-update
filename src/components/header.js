@@ -66,60 +66,62 @@ const Header = ({ location }) => {
     ]
 
     return (
-        <Container as='header' maxWidth={false} >
-            <Box display='flex'>
-                <Box flexBasis="50%">
-                    {
-                        isRootPath &&
-                        <Link to={'/'}>
-                            <Typography>
-                                Derrick Bozich
-                            </Typography>
+        <Container as='header' maxWidth={false} sx={{ display: 'flex', flexWrap: 'wrap' }} >
+            <Box flexBasis={["100%", null, "50%"]}>
+                {
+                    isRootPath &&
+                    <Link to={'/'}>
+                        <Typography>
+                            Derrick Bozich
+                        </Typography>
 
-                        </Link>
-                    }
-                </Box>
+                    </Link>
+                }
+            </Box>
 
-                <List
-                    listStyle='none'
-                    sx={{
-                        flexBasis: "50%",
-                        display: "flex",
-                        gap: "30px",
-                        justifyContent: 'flex-end',
-                        alignItems: "center"
-                    }}
-                >
-                    {navItems.map((item, i) => {
-                        if (item.external) {
-                            return (
-                                <ListItem >
-                                    <a href={item.to} target="_blank" rel="noopener noreferrer">
+            <List
+                listStyle='none'
+                sx={{
+                    flexBasis: ["100%", null, "50%"],
+                    display: "flex",
+                    gap: "30px",
+                    justifyContent: 'flex-end',
+                    alignItems: "center"
+                }}
+            >
+                {navItems.map((item, i) => {
+                    if (item.external) {
+                        return (
+                            <ListItem sx={{ display: 'inline-flex', width: 'auto', padding: 0 }}  >
+                                <a href={item.to} target="_blank" rel="noopener noreferrer">
+                                   
+                                    <Typography variant='nav'>
                                         {
                                             item.icon && item.icon
                                         }
-                                    </a>
-                                </ListItem >
-
-                            )
-                        }
-                        return (
-                            <ListItem cursor='pointer' disablePadding>
-                                <Link href={item.to}  >
-                                    <Typography variant='nav'>
-                                        {item.title}
                                     </Typography>
-                                </Link>
+                                </a>
                             </ListItem >
 
                         )
-                    })}
+                    }
+                    return (
+                        <ListItem sx={{ display: 'inline-flex', width: 'auto' }} disablePadding>
+                            <Link href={item.to}  >
+                                <Typography variant='nav'>
+                                    {item.title}
+                                </Typography>
+                            </Link>
+                        </ListItem >
 
-                </List>
+                    )
+                })}
+
+            </List>
 
 
 
-            </Box>
+
 
         </Container>
     )

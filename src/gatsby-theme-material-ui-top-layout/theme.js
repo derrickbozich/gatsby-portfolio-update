@@ -1,10 +1,10 @@
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
 const fonts = {
-    body: 'Work Sans'
+    body: 'Red Hat Text'
 }
 
-const theme = createTheme({
+let theme = createTheme({
     palette: {
         primary: {
             light: '#f5f4f1',
@@ -21,19 +21,18 @@ const theme = createTheme({
     },
     typography: {
         h1: {
-            fontWeight: 700,
+            fontWeight: 500,
             fontFamily: fonts.body,
-            fontSize: '2.5rem',
-            marginBottom: '0.4rem',
-            textTransform: 'uppercase',
+            fontSize: 60,
+            marginBottom: '0',
             letterSpacing: '0.01em'
         },
         h2: {
-            fontWeight: 600,
+            fontWeight: 500,
             fontFamily: fonts.body,
-            fontSize: 42,
-            marginBottom: '1rem',
-            letterSpacing: '0.15em'
+            fontSize: 58,
+            marginBottom: '0.5rem',
+            letterSpacing: '0.01em'
         },
         h3: {
             fontWeight: 600,
@@ -47,8 +46,13 @@ const theme = createTheme({
 
         subhead1: {
             fontFamily: fonts.body,
-            fontSize: 22,
+            fontSize: 36,
             marginBottom: '1rem'
+        },
+        subhead2: {
+            fontFamily: fonts.body,
+            fontSize: 34,
+            fontWeight: '400',
         },
 
         body1italic: {
@@ -57,7 +61,7 @@ const theme = createTheme({
         },
         body1: {
             fontFamily: fonts.body,
-            fontSize: 18,
+            fontSize: 20,
             marginBottom: '2rem'
         },
         body2: {
@@ -114,6 +118,8 @@ const theme = createTheme({
 
     },
 });
+
+theme = responsiveFontSizes(theme);
 
 
 

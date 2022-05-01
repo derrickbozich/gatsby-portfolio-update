@@ -79,5 +79,72 @@ body {
     font-family: var(--font-body);
     font-size: var(--fontSize-1);
     color: var(--color-text);
-    margin-bottom: 0
+    margin: 0;
+    animation: pulse 80s infinite alternate;
+    background-color: #ff0000;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+/*Animation Prefs*/
+
+@keyframes pulse {
+    0% {
+        background-color: #ff9966;
+    }
+    13% {
+        background-color: #ff8200;
+    }
+    26% {
+        background-color: #ffff66;
+    }
+    39% {
+        background-color: #99ff66;
+    }
+    52% {
+        background-color: #00ff00;
+    }
+    65% {
+        background-color: #00ccff;
+    }
+    78% {
+        background-color: #ff9999;
+    }
+    91% {
+        background-color: #ff0000;
+    }
+    100% {
+        background-color: #ff0000;
+    }
+}
+
+@-moz-keyframes pulse_m {
+    0% {
+        background-color: #ff9966;
+    }
+    13% {
+        background-color: #ff8200;
+    }
+    26% {
+        background-color: #ffff66;
+    }
+    39% {
+        background-color: #99ff66;
+    }
+    52% {
+        background-color: #00ff00;
+    }
+    65% {
+        background-color: #00ccff;
+    }
+    78% {
+        background-color: #ff9999;
+    }
+    91% {
+        background-color: #ff0000;
+    }
+    100% {
+        background-color: #ff0000;
+    }
 }
