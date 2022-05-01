@@ -40,10 +40,7 @@ const BlogPostTemplate = ({ data, location }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
             />
-            <hr />
-            <footer>
-              <Bio />
-            </footer>
+           
           </article>
         </Box>
         <Box flexBasis='40%'>

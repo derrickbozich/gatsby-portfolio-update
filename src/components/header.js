@@ -62,18 +62,18 @@ const Header = ({ location }) => {
         {
             to: 'https://github.com/derrickbozich',
             title: "Contact",
-            icon: <GitHubIcon sx={{fontSize: '30px', color: 'black'}} />,
+            icon: <GitHubIcon sx={{ fontSize: '35px', color: 'black', paddingTop: '5px' }} />,
             external: true
         }
     ]
 
     return (
-        <Container as='header' maxWidth={false} sx={{ display: 'flex', flexWrap: 'wrap' }} >
+        <Container as='header' maxWidth={false} sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }} >
             <Box flexBasis={["100%", null, "50%"]}>
                 {
                     !isRootPath &&
-                    <Link to={'/'}>
-                        <Typography>
+                    <Link href={'/'} sx={{textDecoration:'none'}} >
+                        <Typography variant='brand' color='black'>
                             Derrick Bozich
                         </Typography>
 
@@ -86,7 +86,7 @@ const Header = ({ location }) => {
                 sx={{
                     flexBasis: ["100%", null, "50%"],
                     display: "flex",
-                    gap: "30px",
+                    gap: "20px",
                     justifyContent: 'flex-end',
                     alignItems: "center"
                 }}
@@ -99,15 +99,15 @@ const Header = ({ location }) => {
                                     {
                                         item.icon && item.icon
                                     }
-                                    
+
                                 </a>
                             </ListItem >
 
                         )
                     }
                     return (
-                        <ListItem sx={{ display: 'inline-flex', width: 'auto',  }} disablePadding>
-                            <Link href={item.to} color='primary.dark' sx={{ textDecoration:'none', '&:hover':{textDecoration: 'underline'}}}   >
+                        <ListItem sx={{ display: 'inline-flex', width: 'auto', }} disablePadding>
+                            <Link href={item.to} color='primary.dark' sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}   >
                                 <Typography variant='nav' as='p'>
                                     {item.title}
                                 </Typography>

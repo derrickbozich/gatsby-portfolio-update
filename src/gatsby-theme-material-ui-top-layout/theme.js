@@ -52,7 +52,7 @@ let theme = createTheme({
         },
         subhead2: {
             fontFamily: fonts.body,
-            fontSize: 38,
+            fontSize: 32,
             fontWeight: 500,
         },
 
@@ -80,8 +80,8 @@ let theme = createTheme({
         },
         brand: {
             fontFamily: fonts.body,
-            fontWeight: 400,
-            letterSpacing: '0.05em',
+            fontWeight: 500,
+            // letterSpacing: '0.05em',
             // textTransform: 'uppercase'
         },
         footerBrand: {
