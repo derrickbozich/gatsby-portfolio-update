@@ -60,7 +60,7 @@ const Header = ({ location }) => {
         {
             to: 'https://github.com/derrickbozich',
             title: "Contact",
-            icon: <GitHubIcon />,
+            icon: <GitHubIcon sx={{fontSize: '30px', color: 'black'}} />,
             external: true
         }
     ]
@@ -94,21 +94,19 @@ const Header = ({ location }) => {
                         return (
                             <ListItem sx={{ display: 'inline-flex', width: 'auto', padding: 0 }}  >
                                 <a href={item.to} target="_blank" rel="noopener noreferrer">
-                                   
-                                    <Typography variant='nav'>
-                                        {
-                                            item.icon && item.icon
-                                        }
-                                    </Typography>
+                                    {
+                                        item.icon && item.icon
+                                    }
+                                    
                                 </a>
                             </ListItem >
 
                         )
                     }
                     return (
-                        <ListItem sx={{ display: 'inline-flex', width: 'auto' }} disablePadding>
-                            <Link href={item.to}  >
-                                <Typography variant='nav'>
+                        <ListItem sx={{ display: 'inline-flex', width: 'auto',  }} disablePadding>
+                            <Link href={item.to} color='primary.dark' sx={{ textDecoration:'none', '&:hover':{textDecoration: 'underline'}}}   >
+                                <Typography variant='nav' as='p'>
                                     {item.title}
                                 </Typography>
                             </Link>

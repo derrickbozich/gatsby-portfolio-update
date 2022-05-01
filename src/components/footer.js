@@ -22,21 +22,21 @@ const Footer = () => {
           display: 'flex',
           flexDirection: "column",
           flexWrap: 'wrap',
-          padding: '8rem',
+          padding: '8rem 0 4rem 0',
           justifyContent: 'center',
           textAlign: 'center'
         }} >
         <Box>
-          <Typography color='primary.light' >
+          <Typography color='primary.light' as='p' variant='subhead2' mb='1.5rem' >
             Contact
           </Typography>
           <a href="mailto:dbozich1@gmail.com" target="_blank" rel="noopener noreferrer">
-            <Typography color='primary.light' >
+            <Typography color='primary.light' variant='body2' mb='1.5rem'>
               dbozich1@gmail.com
             </Typography>
           </a>
-          <a href="mailto:dbozich1@gmail.com" target="_blank" rel="noopener noreferrer">
-            <GitHubIcon color='primary.light' />
+          <a href="https://github.com/derrickbozich" target="_blank" rel="noopener noreferrer">
+            <GitHubIcon color='primary.light' sx={{ fontSize:'40px', color:'white', marginBottom: '1rem'}} />
           </a>
           <Typography color='primary.light' >
             © {new Date().getFullYear()}

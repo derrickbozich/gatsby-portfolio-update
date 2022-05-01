@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Box from "@mui/material/Box"
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
@@ -9,6 +9,8 @@ import sinwav from "../images/svg/sinwav.svg"
 import Counter from "../components/counter"
 import Blob from "../components/blob/blob-react"
 import Slider from "react-slick";
+import { Link } from 'gatsby-theme-material-ui'
+
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -37,7 +39,7 @@ const BlogIndex = ({ data, location }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1
   };
 
@@ -45,10 +47,10 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="Home" />
 
-      <Box  minHeight='max(700px,calc(100vh - 63px))' display='flex' alignItems='center'>
-        <Container sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifContent: ['flex-start', 'center', 'flex-start' ] }}>
+      <Box minHeight='max(700px,calc(100vh - 63px))' display='flex' alignItems='center'>
+        <Container sx={{ display: 'flex', maxWidth:'1100px', alignItems: 'center', flexWrap: 'wrap', justifyContent: ['flex-start', 'center', 'flex-start'] }}>
 
-          <Box flexBasis={['100%', '100%', '100%', '50%']} textAlign={ ['left', 'center', 'center', 'left']}>
+          <Box flexBasis={['100%', '100%', '100%', '50%']} textAlign={['left', 'center', 'center', 'left']}>
             <Typography variant='h1'>
               Derrick Bozich
             </Typography>
@@ -57,71 +59,66 @@ const BlogIndex = ({ data, location }) => {
             </Typography>
           </Box>
           <Box flexBasis={['100%', '100%', '100%', '50%']} pt={['30px']} display='flex' justifyContent={['flex-start', 'center', 'center', 'flex-start']}>
-            <img src={sinwav} alt="sin wave" width='518px' style={{maxWidth: '100%'}} />
+            <img src={sinwav} alt="sin wave" width='518px' style={{ maxWidth: '100%' }} />
           </Box>
 
         </Container>
 
       </Box>
 
-     <Box backgroundColor='white'>
+      <Box backgroundColor='white' minHeight='max(700px, 80vh)'>
 
-        <Container id='portfolio' sx={{ minHeight: 'max(700px, 100vh)', display:'flex', alignItems:'center' }}>
+        <Container id='portfolio' >
           <Box >
-            <Typography variant='h2'>
+            <Typography variant='h2' pt='6rem'>
               Portfolio
             </Typography>
-            <Blob />
-          
-            <Box>
-              <ol style={{ listStyle: `none`, paddingLeft: 0 }}>
-                <Slider {...settings}>
-                  {posts.map(post => {
-                    const title = post.frontmatter.title || post.fields.slug
-
-                    return (
-                      <div key={post.fields.slug}>
-                     
-                        <article
-                          className="post-list-item"
-                          itemScope
-                          itemType="http://schema.org/Article"
-                        >
-                          <header>
-                            <h2>
-                              <Link to={post.fields.slug} itemProp="url">
-                                <span itemProp="headline">{title}</span>
-                              </Link>
-                            </h2>
-                            <small>{post.frontmatter.date}</small>
-                          </header>
-                          <section>
-                            <p
-                              dangerouslySetInnerHTML={{
-                                __html: post.frontmatter.description || post.excerpt,
-                              }}
-                              itemProp="description"
-                            />
-                          </section>
-                        </article>
-                      </div>
-                    )
-                  })}
-
-                </Slider>
-                
-              </ol>
-            </Box>
-
+            <Typography variant='body1' mb='1rem'>
+              Click on a blob to explore the project
+            </Typography>
           </Box>
-       
-
         </Container>
+        <ol style={{ listStyle: `none`, paddingLeft: 0, maxWidth: '1200px', margin: '0 auto' }}>
+          <Slider {...settings}>
+            {posts.map(post => {
+              const title = post.frontmatter.title || post.fields.slug
 
-     </Box>
+              return (
+                <div key={post.fields.slug}>
+                  <Link href={post.fields.slug} color='primary.dark'>
+                    <Blob title={title} />
+
+                    <article
+                      className="post-list-item"
+                      itemScope
+                      itemType="http://schema.org/Article"
+                    >
+
+                      {/* <section>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: post.frontmatter.description || post.excerpt,
+                          }}
+                          itemProp="description"
+                        />
+                      </section> */}
+                    </article>
+
+                  </Link>
+
+
+                </div>
+              )
+            })}
+
+          </Slider>
+
+        </ol>
+
+      </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Container id='about' sx={{paddingBottom: '6rem'}}>
+        <Container id='about' sx={{ paddingBottom: '6rem' }}>
           <Typography variant='h2' pt='6rem'>
             About
           </Typography>
@@ -149,8 +146,8 @@ const BlogIndex = ({ data, location }) => {
               clients.map((item, i) => {
                 return (
                   <Box as='li' key={i} sx={{ marginBotton: '1rem' }}>
-                    <a href={item.to} key={i}>
-                      <Typography variant='body1' mb='0'>
+                    <a href={item.to} key={i} style={{"&:hover": {textDecoration: "underline"}}}>
+                      <Typography variant='body1' mb='0' color='primary.dark'>
                         {item.title}
                       </Typography>
                     </a>
@@ -162,7 +159,7 @@ const BlogIndex = ({ data, location }) => {
           </Box>
         </Container>
 
-     </Box>
+      </Box>
 
 
 

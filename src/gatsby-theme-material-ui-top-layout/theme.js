@@ -35,10 +35,10 @@ let theme = createTheme({
             letterSpacing: '0.01em'
         },
         h3: {
-            fontWeight: 600,
+            fontWeight: 500,
             fontFamily: fonts.body,
-            fontSize: 32,
-            marginBottom: '1rem'
+            fontSize: 30,
+            // marginBottom: '1rem'
         },
         p: {
             fontFamily: fonts.body,
@@ -46,54 +46,36 @@ let theme = createTheme({
 
         subhead1: {
             fontFamily: fonts.body,
+           
             fontSize: 36,
             marginBottom: '1rem'
         },
         subhead2: {
             fontFamily: fonts.body,
-            fontSize: 34,
-            fontWeight: '400',
+            fontSize: 38,
+            fontWeight: 500,
         },
 
-        body1italic: {
-            fontFamily: "bodini-italic",
-            fontSize: 18,
-        },
+
         body1: {
             fontFamily: fonts.body,
-            fontSize: 20,
+            fontSize: 19,
             marginBottom: '2rem'
         },
         body2: {
             fontFamily: fonts.body,
-            fontSize: 18,
+            fontSize: 22,
+            marginBottom: '1rem'
         },
-        body2Bold: {
-            fontFamily: fonts.body,
-            fontWeight: 600,
-            fontSize: 18,
-        },
-        body2Black: {
-            fontFamily: fonts.body,
-            fontWeight: 700,
-            fontSize: 18,
-        },
-        body3: {
-            fontFamily: fonts.body,
-            fontSize: 16,
-            marginBottom: '1rem',
-            display: 'block'
-        },
-        body3Bold: {
-            fontFamily: fonts.body,
-            fontSize: 16,
-            fontWeight: 600,
-        },
+
+
         nav: {
 
             fontFamily: fonts.body,
-            fontSize: 16,
-            letterSpacing: '0.15em'
+            fontSize: 17,
+            fontWeight: 400,
+            lineHeight: 0,
+            letterSpacing: '0.1em'
 
         },
         brand: {

@@ -3,11 +3,12 @@ import { spline } from "./spline"
 import SimplexNoise from 'simplex-noise';
 import { useAnimationFrame } from "../../hooks/useAnimationFrame";
 import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 // Reference:
 // https://georgefrancis.dev/writing/build-a-smooth-animated-blob-with-svg-and-js/
 
-const Blob = () => {
+const Blob = ({title}) => {
     const [points, setPoints] = React.useState(createPoints())
     const [d, setD] = React.useState(null)
     let hueNoiseOffset = 0;
@@ -87,24 +88,33 @@ const Blob = () => {
         const hue = map(hueNoise, -1, 1, 0, 360);
         const root = document.documentElement;
         root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
-        root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
+        root.style.setProperty("--stopColor", `hsl(${hue + 60 }, 100%, 75%)`);
 
         hueNoiseOffset += noiseStep / 6;
     })
 
     return (
-        <Box maxWidth='200px'>
-            <svg viewBox="0 0 200 200">
-                <defs>
-                    <linearGradient id="gradient" gradientTransform="rotate(90)">
-                        <stop id="gradientStop1" offset="0%" stopColor="var(--startColor)" />
-                        <stop id="gradientStop2 " offset="100%" stopColor="var(--stopColor)" />
-                    </linearGradient>
-                </defs>
-                <path d={d} fill="url('#gradient')"></path>
-            </svg>
+       
+            <Box maxWidth='400px' position='relative' mx='auto'>
+                <svg viewBox="0 0 200 200">
+                    <defs>
+                        <linearGradient id="gradient" gradientTransform="rotate(90)">
+                            <stop id="gradientStop1" offset="0%" stopColor="var(--startColor)" />
+                            <stop id="gradientStop2 " offset="100%" stopColor="var(--stopColor)" />
+                        </linearGradient>
+                    </defs>
+                    <path d={d} fill="url('#gradient')"></path>
+                </svg>
+                <Box position='absolute' top="50%" left="50%" sx={{ transform: "translate(-50%, -50%)" }} >
+                <Typography textAlign='center' variant='h3' sx={{ "&:hover": { textDecoration: 'underline' }} }>
+                        {title}
+                    </Typography>
+                </Box>
 
-        </Box>
+
+            </Box>
+       
+   
       
     )
 }
