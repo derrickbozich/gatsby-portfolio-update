@@ -19,15 +19,9 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Container maxWidth={false} sx={{ paddingBottom: '8rem', paddingTop: '2rem', gap: '40px', display: 'flex', justifyContent: 'center' }}>
-        <Box display="flex" alignItems="center" flexBasis='15%'>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </Box>
-        <Box flexBasis='35%'>
+      <Container maxWidth={false} sx={{ paddingBottom: '8rem', paddingTop: '2rem', flexWrap: 'wrap', gap: '40px', display: 'flex', justifyContent: 'center' }}>
+     
+        <Box flexBasis={['100%','calc(50% - 40px)']}>
           <article
             className="blog-post"
             itemScope
@@ -47,8 +41,15 @@ const BlogPostTemplate = ({ data, location }) => {
            
           </article>
         </Box>
-        <Box flexBasis='35%'>
+        <Box flexBasis={['100%', '50%', "50%"]}>
           <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" />
+        </Box>
+        <Box alignItems="center" display={['flex']} flexBasis={['15%']}>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
         </Box>
         <Box display="flex" alignItems="center" justifyContent="center" flexBasis='15%'>
           {next && (

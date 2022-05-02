@@ -82,7 +82,7 @@ const BlogIndex = ({ data, location }) => {
               Portfolio
             </Typography>
             <Typography variant='body1' mb='1rem'>
-              Click on a blob to explore the project
+              Click on a blob to explore a project.
             </Typography>
           </Box>
         </Container>
@@ -141,7 +141,7 @@ const BlogIndex = ({ data, location }) => {
             What I'm practicing:
           </Typography>
           <Typography variant='body1'>
-            I am always learning new frameworks, languages, coding practices or strengthening my knowledge of what I am already familiar with. Right now, I am focusing on learning more advanced React concepts. I am also very interested in Digital Signal Processing.
+            I am always learning new frameworks, languages, coding practices or strengthening my knowledge of what I am already familiar with. Right now, I am focusing on learning more advanced React concepts. I am also am beginning my studies of Digital Signal Processing.
           </Typography>
           <Typography as='h2' variant='subhead2'>
             Clients
