@@ -12,9 +12,9 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
-  const image = getImage(data.imageSharp.gatsbyImageData)
 
   console.log('data', data)
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -45,8 +45,6 @@ const BlogPostTemplate = ({ data, location }) => {
         </Box>
         <Box flexBasis={['100%', '50%', "50%"]}>
           {/* <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" /> */}
-          <GatsbyImage image={image} alt={'yooo'} />
-          <img src="" alt="" srcSet={data.imageSharp.gatsbyImageData.images.fallback.srcSet } />
         </Box>
         <Box alignItems="center" display={['flex']} flexBasis={['15%']}>
           {previous && (
@@ -62,7 +60,11 @@ const BlogPostTemplate = ({ data, location }) => {
             </Link>
           )}
         </Box>
+
+     
+
       </Container>
+
     </Layout>
   )
 }
@@ -74,7 +76,6 @@ export const pageQuery = graphql`
     $id: String!
     $previousPostId: String
     $nextPostId: String
-    $featuredImage: String
   ) {
     site {
       siteMetadata {
@@ -90,11 +91,10 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         featuredImage
+        href
+        featured
       }
     }
-    imageSharp(resize: {originalName: {eq: $featuredImage }}) {
-    gatsbyImageData
-  }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {
         slug
