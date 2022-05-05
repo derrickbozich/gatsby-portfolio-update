@@ -5,7 +5,7 @@ import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import sinwav from "../images/svg/sinwav.svg"
+import sinwav from "../svg/sinwav.svg"
 import Blob from "../components/blob/blob-react"
 import Slider from "react-slick";
 import { Link } from 'gatsby-theme-material-ui'
@@ -87,7 +87,7 @@ const BlogIndex = ({ data, location }) => {
         </Container>
         <ol style={{ listStyle: `none`, paddingLeft: 0, maxWidth: '1200px', margin: '0 auto' }}>
           <Slider {...settings}>
-            {posts.map((post, i) => {
+            {posts.filter(post => post.featured !== true).map((post, i) => {
               const title = post.frontmatter.title || post.fields.slug
 
               if(!post.frontmatter.featured){
