@@ -1,7 +1,7 @@
 ---
 title: "Nod (Marketing Site)"
 date: "2018-01-01"
-featuredImage: ../images/posts/nod.png
+featuredImage: "nod.png"
 featured: true
 href: https://www.heynod.com/
 ---

@@ -20,6 +20,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            frontmatter {
+              featuredImage
+            }
           }
         }
       }
@@ -52,6 +55,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          featuredImage: post.frontmatter.featuredImage,
+          
         },
       })
     })
@@ -106,6 +111,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      featuredImage: String
+      featured: Boolean
     }
 
     type Fields {

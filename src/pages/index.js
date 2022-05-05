@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import sinwav from "../images/svg/sinwav.svg"
-import Counter from "../components/counter"
 import Blob from "../components/blob/blob-react"
 import Slider from "react-slick";
 import { Link } from 'gatsby-theme-material-ui'

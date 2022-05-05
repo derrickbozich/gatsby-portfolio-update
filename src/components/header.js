@@ -33,10 +33,7 @@ const Header = ({ location }) => {
   `)
 
     // Set these values by editing "siteMetadata" in gatsby-config.js
-    const author = data.site.siteMetadata?.author
-    const social = data.site.siteMetadata?.social
     const rootPath = `${__PATH_PREFIX__}/`
-    console.log('location', location)
     // const rootPath = `/`
     const isRootPath = location?.pathname === rootPath
 
@@ -82,13 +79,13 @@ const Header = ({ location }) => {
             </Box>
 
             <List
-                listStyle='none'
                 sx={{
                     flexBasis: ["100%", null, "50%"],
                     display: "flex",
                     gap: "20px",
                     justifyContent: 'flex-end',
-                    alignItems: "center"
+                    alignItems: "center",
+                    listStyle: 'none'
                 }}
             >
                 {navItems.map((item, i) => {
@@ -106,7 +103,7 @@ const Header = ({ location }) => {
                         )
                     }
                     return (
-                        <ListItem sx={{ display: 'inline-flex', width: 'auto', }} disablePadding>
+                        <ListItem key={i}  sx={{ display: 'inline-flex', width: 'auto', }} disablePadding>
                             <Link href={item.to} color='primary.dark' sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}   >
                                 <Typography variant='nav' as='p'>
                                     {item.title}

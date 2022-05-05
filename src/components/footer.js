@@ -10,6 +10,7 @@ import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
 
 
 const Footer = () => {
@@ -36,7 +37,10 @@ const Footer = () => {
             </Typography>
           </a>
           <a href="https://github.com/derrickbozich" target="_blank" rel="noopener noreferrer">
-            <GitHubIcon color='primary.light' sx={{ fontSize:'40px', color:'white', marginBottom: '1rem'}} />
+            <GitHubIcon color='primary.light' sx={{ fontSize:'40px', color:'white', marginBottom: '1rem', marginRight: '0.5rem'}} />
+          </a>
+          <a href="mailto:dbozich1@gmail.com" target="_blank" rel="noopener noreferrer">
+            <EmailIcon color='primary.light' sx={{ fontSize:'40px', color:'white', marginBottom: '1rem'}} />
           </a>
           <Typography color='primary.light' >
             © {new Date().getFullYear()}

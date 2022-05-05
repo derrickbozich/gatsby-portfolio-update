@@ -5,10 +5,10 @@ export const useAnimationFrame = callback => {
     // without triggering a re-render on their change
     const requestRef = React.useRef();
     const previousTimeRef = React.useRef();
-    const fpsInterval = 1000 / 5;
+    // const fpsInterval = 1000 / 5;
 
     const animate = time => {
-        if (previousTimeRef.current != undefined) {
+        if (previousTimeRef.current !== undefined) {
             const deltaTime = time - previousTimeRef.current;
             callback(deltaTime)
         }
