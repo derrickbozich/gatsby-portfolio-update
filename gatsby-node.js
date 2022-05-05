@@ -45,8 +45,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
-      console.log('post', post)
-
       createPage({
         path: post.fields.slug,
         component: blogPost,
@@ -54,7 +52,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
-          // featuredImage: post.frontmatter.featuredImage
         },
       })
     })
@@ -109,9 +106,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
-      featuredImage: String
-      href: String
-      featured: Boolean
     }
 
     type Fields {

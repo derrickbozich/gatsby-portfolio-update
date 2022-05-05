@@ -13,8 +13,6 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
-  console.log('data', data)
-
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -44,7 +42,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </article>
         </Box>
         <Box flexBasis={['100%', '50%', "50%"]}>
-          {/* <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" /> */}
+          <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" />
         </Box>
         <Box alignItems="center" display={['flex']} flexBasis={['15%']}>
           {previous && (
@@ -90,9 +88,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        featuredImage
-        href
-        featured
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
