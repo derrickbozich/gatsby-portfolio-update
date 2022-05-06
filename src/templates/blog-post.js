@@ -8,6 +8,8 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Button from "@mui/material/Button"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -24,9 +26,9 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Container sx={{ paddingBottom: '8rem', paddingTop: '2rem', maxWidth: ['inherit', 'inherit', 'inherit',  '1300px'], flexWrap: 'wrap', gap: '40px', display: 'flex', justifyContent: 'center' }}>
-     
-        <Box flexBasis={['100%','calc(50% - 40px)']}>
+      <Container sx={{ paddingBottom: '8rem', paddingTop: '2rem', maxWidth: ['inherit', 'inherit', 'inherit', '1300px'], flexWrap: 'wrap', gap: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+        <Box flexBasis={['100%', 'calc(50% - 40px)']}>
           <article
             className="blog-post"
             itemScope
@@ -48,30 +50,52 @@ const BlogPostTemplate = ({ data, location }) => {
                 Explore the site
               </Button>
             </a>
-           
-           
+
+
           </article>
         </Box>
         <Box flexBasis={['100%', '50%', "50%"]}>
-          {/* <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" /> */}
-          <GatsbyImage image={image} objectPosition='top' objectFit='contain' alt={'yoo'} />
+          <a href={post.frontmatter.href} target="_blank" rel="noopener noreferrer">
+            <Box maxHeight='330px' overflow='hidden'>
+              <GatsbyImage image={image} objectPosition='top' objectFit='contain' alt={'yoo'} />
+            </Box>
+          </a>
         </Box>
-        <Box alignItems="center" display={['flex']} flexBasis={['15%']}>
+        <Box display="flex" minWidth={['90%', null, null, "600px"]} justifyContent='center'>
+      
+
+
           {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
+            <Box alignItems="center" display={['flex']} flexBasis={['45%']} >
+              <Link to={previous.fields.slug} rel="prev" sx={{ display: 'flex', color: 'primary.dark', gap: '8px', alignItems: 'center' }}>
+
+                <ArrowCircleLeftIcon sx={{ fontSize: 40 }} />
+                <Typography as='p' mb='0'>
+                  {previous.frontmatter.title}
+                </Typography>
+
+              </Link>
+            </Box>
           )}
-        </Box>
-        <Box display="flex" alignItems="center" justifyContent="center" flexBasis='15%'>
           {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
+            <Box display="flex" alignItems="center" justifyContent="center" flexBasis='45%'>
+
+              <Link to={next.fields.slug} rel="next" sx={{ display: 'flex', gap: '8px', color: 'primary.dark', alignItems: 'center'}}>
+                <Typography as='p' mb='0'>
+                  {next.frontmatter.title} 
+                </Typography>
+   
+                <ArrowCircleRightIcon sx={{ fontSize: 40}}  />
+              </Link>
+            </Box>
           )}
+
+
+
         </Box>
 
-     
+
+
 
       </Container>
 
@@ -105,7 +129,6 @@ export const pageQuery = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 626
-              height: 340
             )
           }
         }

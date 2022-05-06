@@ -10,7 +10,6 @@ import Blob from "../components/blob/blob-react"
 import Slider from "react-slick";
 import { Link } from 'gatsby-theme-material-ui'
 
-
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
@@ -25,11 +24,11 @@ const BlogIndex = ({ data, location }) => {
       title: 'Grit Digital Health'
     },
     {
-      to: 'https://gritdigitalhealth.com',
+      to: 'https://kemado.com/',
       title: 'Kemado Media Group'
     },
     {
-      to: 'https://gritdigitalhealth.com',
+      to: 'https://www.dominomusic.com/us',
       title: 'Domino Records'
     }
   ];
@@ -80,7 +79,7 @@ const BlogIndex = ({ data, location }) => {
             <Typography variant='h2' pt='6rem'>
               Portfolio
             </Typography>
-            <Typography variant='body1' mb='1rem'>
+            <Typography variant='body2' mb='1rem'>
               Click on a blob to explore a project.
             </Typography>
           </Box>
@@ -150,7 +149,7 @@ const BlogIndex = ({ data, location }) => {
               clients.map((item, i) => {
                 return (
                   <Box as='li' key={i} sx={{ marginBotton: '1rem' }}>
-                    <a href={item.to} key={i} style={{"&:hover": {textDecoration: "underline"}}}>
+                    <a href={item.to} target="_blank" rel="noreferrer nofollow" key={i} style={{"&:hover": {textDecoration: "underline"}}}>
                       <Typography variant='body1' mb='0' color='primary.dark'>
                         {item.title}
                       </Typography>
