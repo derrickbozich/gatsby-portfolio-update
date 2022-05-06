@@ -6,12 +6,17 @@ import Seo from "../components/seo"
 import Container from "@mui/material/Container"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
-// import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Button from "@mui/material/Button"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
+  const image = getImage(post.frontmatter.featuredImage)
+
+  console.log(post)
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -19,7 +24,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Container maxWidth={false} sx={{ paddingBottom: '8rem', paddingTop: '2rem', flexWrap: 'wrap', gap: '40px', display: 'flex', justifyContent: 'center' }}>
+      <Container sx={{ paddingBottom: '8rem', paddingTop: '2rem', maxWidth: ['inherit', 'inherit', 'inherit',  '1300px'], flexWrap: 'wrap', gap: '40px', display: 'flex', justifyContent: 'center' }}>
      
         <Box flexBasis={['100%','calc(50% - 40px)']}>
           <article
@@ -37,12 +42,19 @@ const BlogPostTemplate = ({ data, location }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
               itemProp="articleBody"
             />
-            {post.frontmatter.featuredImage}
+            {/* {post.frontmatter.featuredImage} */}
+            <a href={post.frontmatter.href} target="_blank" rel="noopener noreferrer">
+              <Button>
+                Explore the site
+              </Button>
+            </a>
+           
            
           </article>
         </Box>
         <Box flexBasis={['100%', '50%', "50%"]}>
-          <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" />
+          {/* <img src={post.frontmatter.featuredImage} width='300px' height='300px' alt="yooo" /> */}
+          <GatsbyImage image={image} objectPosition='top' objectFit='contain' alt={'yoo'} />
         </Box>
         <Box alignItems="center" display={['flex']} flexBasis={['15%']}>
           {previous && (
@@ -88,6 +100,15 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        href
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              width: 626
+              height: 340
+            )
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

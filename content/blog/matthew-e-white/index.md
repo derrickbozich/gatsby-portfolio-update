@@ -1,7 +1,7 @@
 ---
 title: "Matthew E. White"
 date: "2019-02-01"
-featuredImage: "matthew-e-white.png"
+featuredImage: matthew-e-white.png
 featured: true
 href: https://www.matthewewhite.com
 ---
