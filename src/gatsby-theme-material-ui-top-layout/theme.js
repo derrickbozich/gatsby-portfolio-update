@@ -99,6 +99,51 @@ let theme = createTheme({
 
 
     },
+    components: {
+        // Name of the component
+        MuiButton: {
+            variants: [
+                {
+                    props: { variant: 'primary' },
+                    style: {
+                        textTransform: 'none',
+                        // border: `2px dashed red`,
+                        padding: '8px 24px',
+                        backgroundColor: 'orange',
+                        borderRadius: '38px',
+                        color: 'black',
+                        transition: 'all 0.2s ease',
+                        textDecoration: 'none',
+                        '&:hover': {
+                            backgroundColor: 'orange',
+                            opacity: '0.85'
+                        }
+
+                    },
+                },
+                {
+                    props: { variant: 'secondary' },
+                    style: {
+                        textTransform: 'none',
+                        border: `2px solid black`,
+                        padding: '8px 24px',
+                        backgroundColor: 'transparent',
+                        borderRadius: '38px',
+                        color: 'black',
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                            backgroundColor: 'black',
+                            opacity: '0.85',
+                            border: `2px solid black`,
+                            color: 'white'
+                        }
+
+                    },
+                },
+              
+            ],
+        },
+    },
 });
 
 theme = responsiveFontSizes(theme);

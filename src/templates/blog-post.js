@@ -46,7 +46,7 @@ const BlogPostTemplate = ({ data, location }) => {
             />
             {/* {post.frontmatter.featuredImage} */}
             <a href={post.frontmatter.href} target="_blank" rel="noopener noreferrer">
-              <Button>
+              <Button variant='secondary'>
                 Explore the site
               </Button>
             </a>
