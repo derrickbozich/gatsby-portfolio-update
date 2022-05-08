@@ -37,6 +37,12 @@ let theme = createTheme({
         h3: {
             fontWeight: 500,
             fontFamily: fonts.body,
+            fontSize: 44,
+            // marginBottom: '1rem'
+        },
+        h4: {
+            fontWeight: 500,
+            fontFamily: fonts.body,
             fontSize: 30,
             // marginBottom: '1rem'
         },
@@ -53,6 +59,11 @@ let theme = createTheme({
         subhead2: {
             fontFamily: fonts.body,
             fontSize: 32,
+            fontWeight: 500,
+        },
+        subhead3: {
+            fontFamily: fonts.body,
+            fontSize: 36,
             fontWeight: 500,
         },
 

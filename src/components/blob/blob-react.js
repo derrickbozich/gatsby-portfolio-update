@@ -106,7 +106,7 @@ const Blob = ({title}) => {
                     <path d={d} fill="url('#gradient')"></path>
                 </svg>
                 <Box position='absolute' top="50%" left="50%" sx={{ transform: "translate(-50%, -50%)" }} >
-                <Typography textAlign='center' variant='h3' sx={{ "&:hover": { textDecoration: 'underline' }} }>
+                <Typography textAlign='center' variant='h4' sx={{ "&:hover": { textDecoration: 'underline' }} }>
                         {title}
                     </Typography>
                 </Box>

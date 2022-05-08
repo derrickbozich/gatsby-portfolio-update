@@ -28,7 +28,7 @@ const Footer = () => {
           textAlign: 'center'
         }} >
         <Box>
-          <Typography color='primary.light' as='p' variant='subhead2' mb='1.5rem' >
+          <Typography color='primary.light' as='p' variant='subhead3' mb='1.5rem' >
             Contact
           </Typography>
           <a href="mailto:dbozich1@gmail.com" target="_blank" rel="noopener noreferrer">

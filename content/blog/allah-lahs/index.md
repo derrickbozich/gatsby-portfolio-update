@@ -1,6 +1,6 @@
 ---
 title: "Allah Lahs"
-date: "2019-01-28"
+date: "2021-01-28"
 featuredImage: allah-las.jpg
 featured: true
 href: http://allah-las.com/

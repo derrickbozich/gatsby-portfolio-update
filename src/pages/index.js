@@ -149,8 +149,8 @@ const BlogIndex = ({ data, location }) => {
               clients.map((item, i) => {
                 return (
                   <Box as='li' key={i} sx={{ marginBotton: '1rem' }}>
-                    <a href={item.to} target="_blank" rel="noreferrer nofollow" key={i} style={{"&:hover": {textDecoration: "underline"}}}>
-                      <Typography variant='body1' mb='0' color='primary.dark'>
+                    <a href={item.to} target="_blank" rel="noreferrer nofollow" key={i} style={{":hover": {textDecoration: "underline"}}}>
+                      <Typography variant='body1' mb='0' color='primary.dark' sx={{ ":hover": { textDecoration: "underline" } }}>
                         {item.title}
                       </Typography>
                     </a>
